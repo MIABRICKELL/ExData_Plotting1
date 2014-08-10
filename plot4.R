@@ -34,6 +34,7 @@ plot4<-function()
         plotdata$Date <- strptime(paste(plotdata$Date,plotdata$Time), "%d/%m/%Y %H:%M:%S")
         
         ##open a png file device
+        ##using Windows 7, changing type to cairo allowed me to make the line widths a little smaller to better match image
         png(file = "plot4.png", width=480, height=480, units="px", type="cairo")
         
         ##set the plot to be 2 Rows and 2 Columns
@@ -51,7 +52,7 @@ plot4<-function()
                 lines(Date,Sub_metering_3, col="blue")
                 legend("topright", pch=-1, lty=1, col = c("black", "blue", "red"), 
                         legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), bty="n", cex=.95)
-                #create Global Reactive power plot
+                #create Global Reactive power plot, changing lwd to .7 helped me match image more accurately with Windows 7
                 plot(Date, Global_reactive_power, type="l", xlab="datetime", lwd=.7)
         })
         
